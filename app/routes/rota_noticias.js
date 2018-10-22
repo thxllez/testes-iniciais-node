@@ -6,7 +6,11 @@ module.exports = function(app){ //variavel app é recebida por parametro do app.
 		var noticiasDAO = new app.app.models.NoticiasDAO(connection); //new -> realiza uma instancia do módulo
 
 		noticiasDAO.getNoticias(function(error, result){
-			res.render('noticias/view_noticias', {noticias : result});
+			if(error == null){
+				res.render('noticias/view_noticias', {noticias : result});
+			}else{
+				res.send('Erro de conexão');
+			}
 		});
 
 	}); 
