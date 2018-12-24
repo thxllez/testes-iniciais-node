@@ -8,6 +8,7 @@ appConfig.set('view engine', 'ejs'); //declarando que o motor de geraçao de vie
 appConfig.set('views', './app/views'); //setando diretorio padrao de views
 //como o conteudo deste arquivo será exportado para o app.js na raiz do projeto, a busca será feita a partir do local do app.js; por isso utiliza-se ./app/views para determinar o diretorio de views
 
+appConfig.use(express.static('./app/public')); //mapeia o diretorio de arquivos estáticos da aplicaçao
 appConfig.use(bodyParser.urlencoded({extended : true})); //implementando o body-parser no appConfig efetivamente
 //extended é uma propriedade para o bodyParser poder interpretar formulários mais complexos
 appConfig.use(expressValidator()); //implementando o expressValidator no appConfig efetivamente
